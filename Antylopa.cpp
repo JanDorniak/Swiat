@@ -29,8 +29,8 @@ void Antylopa::akcja()
 int Antylopa::kolizja(Organizm& atakujacy)
 {
 	int ucieczka = rand() % 2;
-	if (ucieczka == 1 && atakujacy.getSymbol() != symbol_na_planszy && //na 50% ucieka + musi byc wolne miejsce + nie ucieka
-		swiat->plansza->czyWolneWokol(polozenie_x, polozenie_y))	   //jesli atakuje ten sam gatunek
+	if (ucieczka == 1 && atakujacy.getSymbol() != symbol_na_planszy && //na 50% ucieka + musi byc wolne miejsce + 
+		swiat->plansza->czyWolneWokol(polozenie_x, polozenie_y))	   //nie ucieka jesli atakuje ten sam gatunek
 	{
 		Organizm* przeciwnik;
 		int kierunek;

@@ -1,6 +1,5 @@
 #include "Zwierze.h"
 #include "Swiat.h"
-//#include "Organizm.h"
 
 
 Zwierze::Zwierze(int sila, int inicjatywa, char symbol, int x, int y, Swiat* swiat) : Organizm(sila,inicjatywa
@@ -34,7 +33,6 @@ int Zwierze::kolizja(Organizm& atakujacy)
 	}
 	else if (atakujacy.getSila() >= sila) // jesli atakujacy wygrywa
 	{
-		//zabij();
 		return 1;
 	}
 	else // jesli atakujacy przegrywa

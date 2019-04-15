@@ -15,7 +15,5 @@ void Roslina::akcja()
 
 int Roslina::kolizja(Organizm& atakujacy)
 {
-	//swiat->komentator.komentujAkcje(1, *this, atakujacy);
-	//zabij();
 	return 1;
 }

@@ -14,5 +14,5 @@ public:
 	virtual ~Roslina() = default;
 
 	virtual void akcja() override;
-	virtual int kolizja(Organizm&) override;
+	virtual int kolizja(Organizm& atakujacy) override;
 };

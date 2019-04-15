@@ -4,12 +4,12 @@
 class Lis : public Zwierze
 {
 private:
+	bool znajdzSlabszego(); //sprawdza czy w okolicy jest slabszy organizm
 protected:
 public:
 	Lis() = default;
-	Lis(int, int, Swiat*);
+	Lis(int x, int y, Swiat* swiat);
 
 	void akcja() override;
-	bool znajdzSlabszego(); //sprawdza czy w okolicy jest slabszy organizm
 };
 

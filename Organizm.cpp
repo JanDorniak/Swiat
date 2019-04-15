@@ -29,15 +29,15 @@ void Organizm::wczytajSie(fstream& plik)
 	plik >> sila;
 }
 
-void Organizm::rysuj()
+void Organizm::rysuj() const
 {
 	cout << symbol_na_planszy;
 }
 
 void Organizm::zabij() 
 {
-	swiat->przygotujDoUsuniecia(polozenie_x, polozenie_y);
-	swiat->plansza->usun(polozenie_x, polozenie_y);
+	swiat->przygotujDoUsuniecia(polozenie_x, polozenie_y); //ususwa z listy
+	swiat->plansza->usun(polozenie_x, polozenie_y); //i z planszy
 }
 
 void Organizm::rozmnazaj()
@@ -57,32 +57,32 @@ void Organizm::rozmnazaj()
 	swiat->dodajOrganizm(symbol_na_planszy, polozenie_x + zmianax, polozenie_y + zmianay);
 }
 
-int Organizm::getSila()
+int Organizm::getSila() const
 {
 	return sila;
 }
 
-int Organizm::getInicjatywa()
+int Organizm::getInicjatywa() const
 {
 	return inicjatywa;
 }
 
-int Organizm::getX()
+int Organizm::getX() const
 {
 	return polozenie_x;
 }
 
-int Organizm::getY()
+int Organizm::getY() const
 {
 	return polozenie_y;
 }
 
-int Organizm::getWiek()
+int Organizm::getWiek() const
 {
 	return narodziny;
 }
 
-char Organizm::getSymbol()
+char Organizm::getSymbol() const
 {
 	return symbol_na_planszy;
 }

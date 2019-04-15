@@ -16,7 +16,6 @@
 #include <conio.h>
 #include <fstream>
 #include <cstdio>
-
 using namespace std;
 
 Swiat::Swiat(int x, int y)
@@ -24,7 +23,7 @@ Swiat::Swiat(int x, int y)
 	plansza = new Plansza(x, y);
 	tura = 1;
 	iniciujOrganizmy();
-	rysujSwiat();
+	rysujMenu();
 }
 
 Swiat::~Swiat()
@@ -157,11 +156,11 @@ void Swiat::wykonajTure()
 
 	tura++;
 
-	rysujSwiat();
+	rysujMenu();
 	komentator.czyscRejestr();
 }
 
-void Swiat::rysujSwiat()
+void Swiat::rysujMenu()
 {
 	char znak;
 
@@ -170,6 +169,7 @@ void Swiat::rysujSwiat()
 	cout << "Tura: " << tura << endl;
 	cout << "Nacisnij enter aby kontynuowac, spacje aby wyswietlic raport z tury" << endl;
 	cout << "Aby zapisac wcisnij S, aby wczytac wscisnij W" << endl;
+	cout << "Aby wyjsc wcisnij Q" << endl;
 	do
 	{
 		znak = _getch();
@@ -188,6 +188,10 @@ void Swiat::rysujSwiat()
 			wczytajGre();
 			break;
 		}
+		else if (znak == 'Q' || znak == 'q')
+		{
+			exit(EXIT_SUCCESS);
+		}
 	}
 	while (znak != 13);
 }
@@ -198,8 +202,9 @@ void Swiat::wyswietlRejestr()
 	cout << "Zdarzenia z poprzedniej tury: " << endl;
 	komentator.wypisz();
 
+	cout << endl << "Wcisnij spacje aby powrocic" << endl;
 	while (_getch() != 32);
-	rysujSwiat();
+	rysujMenu();
 }
 
 void Swiat::zapiszGre()
@@ -208,7 +213,7 @@ void Swiat::zapiszGre()
 
 	if (!otworzPlik(zapis, 0))
 	{ 
-		rysujSwiat();
+		rysujMenu();
 		return;
 	}
 
@@ -224,20 +229,8 @@ void Swiat::zapiszGre()
 		zapis << endl;
 	}
 
-	/*for (int i = 0; i < plansza->getX(); i++)
-		for (int j = 0; j < plansza->getY(); j++)
-		{
-			organizm = plansza->getOrganizm(i,j);
-			if (organizm == nullptr)
-				zapis << '0' << endl;
-			else
-			{
-				organizm->zapiszSie(zapis);
-				zapis << endl;
-			}
-		}*/
 	zapis.close();
-	rysujSwiat();
+	rysujMenu();
 }
 
 void Swiat::wczytajGre()
@@ -248,7 +241,7 @@ void Swiat::wczytajGre()
 
 	if (!otworzPlik(zapis, 1))
 	{
-		rysujSwiat();
+		rysujMenu();
 		return;
 	}
 
@@ -271,22 +264,8 @@ void Swiat::wczytajGre()
 		plansza->getOrganizm(x, y)->wczytajSie(zapis);
 	} 
 
-	/*for (int i = 0; i < plansza->getX(); i++)
-		for (int j = 0; j < plansza->getY(); j++)
-		{
-			zapis >> znak;
-			if (znak == '0')
-				plansza->umiesc(nullptr, i, j);
-			else
-			{
-				zapis >> x;
-				zapis >> y;
-				dodajOrganizm(znak, x, y);
-				plansza->getOrganizm(x,y)->wczytajSie(zapis);
-			}
-		}*/
 	zapis.close();
-	rysujSwiat();
+	rysujMenu();
 }
 
 bool Swiat::otworzPlik(fstream& plik, int tryb) //0 zapis, 1 odczyt
@@ -312,7 +291,7 @@ bool Swiat::otworzPlik(fstream& plik, int tryb) //0 zapis, 1 odczyt
 	return true;
 }
 
-int Swiat::getTura()
+int Swiat::getTura() const
 {
 	return tura;
 }

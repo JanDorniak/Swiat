@@ -9,5 +9,5 @@ public:
 	Guarana() = default;
 	Guarana(int x, int y, Swiat* swiat);
 
-	int kolizja(Organizm&) override;
+	int kolizja(Organizm& atakujacy) override;
 };

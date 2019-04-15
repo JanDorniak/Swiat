@@ -11,7 +11,7 @@ void BarszczSosnowskiego::akcja()
 	Organizm** sasiedzi = swiat->plansza->getSasiedzi(polozenie_x, polozenie_y); //znajduje wszystkich sasiadow
 	for (int i = 0; i < 4; i++)
 	{
-		if (sasiedzi[i] != nullptr && dynamic_cast<Roslina*>(sasiedzi[i]) == NULL) //zaabija sasiadow (rosliny nie)
+		if (sasiedzi[i] != nullptr && dynamic_cast<Roslina*>(sasiedzi[i]) == NULL) //zaabija sasiadow (oprocz roslin)
 		{ 
 			swiat->komentator.komentujAkcje(1, sasiedzi[i], this);
 			sasiedzi[i]->zabij();

@@ -7,6 +7,6 @@ private:
 protected:
 public:
 	Owca() = default;
-	Owca(int, int, Swiat*);
+	Owca(int x, int y, Swiat* swiat);
 };
 

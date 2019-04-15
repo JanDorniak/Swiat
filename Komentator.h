@@ -10,6 +10,9 @@ class Komentator
 {
 private:
 	vector<string> rejestr;
+
+	string odmienAtakujacego(char symbol); //odmiena do odpowiedniej formy np "Wilk" na "Wilka"
+	string odmienBroniacego(char symbol);
 protected:
 public:
 	Komentator();
@@ -17,8 +20,6 @@ public:
 
 	void komentujAkcje(int wynik, Organizm*, Organizm*); //dodaje do rejestru komentarz o akcji
 	void czyscRejestr(); //czysci rejestr z poprzedniej tury
-	void wypisz(); //wypisuje zawartosc rejestru
-	string odmienAtakujacego(char); //odmiena do odpowiedniej formy np "Wilk" na "Wilka"
-	string odmienBroniacego(char);
+	void wypisz() const; //wypisuje zawartosc rejestru
 };
 

@@ -10,5 +10,5 @@ public:
 	BarszczSosnowskiego(int x, int y, Swiat* swiat);
 
 	void akcja() override;
-	int kolizja(Organizm&) override;
+	int kolizja(Organizm& atakujacy) override;
 };

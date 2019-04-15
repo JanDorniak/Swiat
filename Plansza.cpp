@@ -25,7 +25,7 @@ Plansza::~Plansza()
 	delete[] pole_gry;
 }
 
-void Plansza::rysuj()
+void Plansza::rysuj() const
 {
 	for (int i = 0; i < x; i++)
 	{
@@ -58,12 +58,12 @@ void Plansza::usun(int x, int y)
 	pole_gry[x][y] = nullptr;
 }
 
-int Plansza::getX()
+int Plansza::getX() const
 {
 	return x;
 }
 
-int Plansza::getY()
+int Plansza::getY() const
 {
 	return y;
 }

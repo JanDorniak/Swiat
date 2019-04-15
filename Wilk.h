@@ -7,5 +7,5 @@ private:
 protected:
 public:
 	Wilk() = default;
-	Wilk(int,int,Swiat*);
+	Wilk(int x, int y,Swiat* swiat);
 };

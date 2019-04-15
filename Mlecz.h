@@ -9,5 +9,5 @@ public:
 	Mlecz() = default;
 	Mlecz(int x, int y, Swiat* swiat);
 
-	void akcja();
+	void akcja() override;
 };

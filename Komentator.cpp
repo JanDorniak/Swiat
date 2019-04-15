@@ -24,11 +24,11 @@ void Komentator::komentujAkcje(int wynik, Organizm* broniacy, Organizm* atakujac
 		return;
 
 	string zdanie = odmienAtakujacego(atakujacy->getSymbol());
-	if (dynamic_cast<Roslina*>(broniacy) != nullptr)
+	if (dynamic_cast<Roslina*>(broniacy) != NULL) //jesli ofiara jest roslina
 		zdanie += " zjada ";
 	else if (broniacy->getSymbol() == atakujacy->getSymbol())
 	{ 
-		if (INFO_ROZMNAZANIE)
+		if (INFO_ROZMNAZANIE) //jesli ma wysiwetalc info o rozmnazaniu
 			zdanie += " spotyka ";
 		else return;
 	}
@@ -56,7 +56,7 @@ void Komentator::czyscRejestr()
 	rejestr.clear();
 }
 
-void Komentator::wypisz()
+void Komentator::wypisz() const
 {
 	for (int i = 0; i < rejestr.size(); i++)
 		cout << rejestr[i] << endl;

@@ -89,7 +89,7 @@ int Czlowiek::wybierzKierunek() //wybor kierunku w ktory ma sie ruszyc
 			kierunek = DOL;
 		else if (kierunek == 77 && polozenie_y != swiat->plansza->getY() - 1)
 			kierunek = GORA;
-		else if (kierunek == 32 && (tura_uzycia == 0 || swiat->getTura() - tura_uzycia > 10))
+		else if (kierunek == 32 && (tura_uzycia == 0 || swiat->getTura() - tura_uzycia >= 10))
 		{
 			tura_uzycia = swiat->getTura();
 			calopalenie();
